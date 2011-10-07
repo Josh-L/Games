@@ -4,6 +4,7 @@ pygame.init()
 size = width, height = 1280, 768
 paddle_speed = [0,0]
 ball_speed   = [3,3]
+ai_speed     = [0,0]
 black =   0,   0,   0
 white = 255, 255, 255
 red   = 155,   0,   0
@@ -39,6 +40,13 @@ while 1:
     if paddle.bottom >= height:
         if paddle_speed[1] > 0:
                 paddle_speed[1] = 0
+
+    if ai.top <= 0:
+        if ai_speed[1] < 0:
+                ai_speed[1] = 0
+    if ai.bottom >= height:
+        if ai_speed[1] > 0:
+                ai_speed[1] = 0
 
     if ball.top <= 0 or ball.bottom >= height:
         ball_speed[1] = -ball_speed[1]
