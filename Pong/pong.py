@@ -59,6 +59,13 @@ while 1:
             ball_speed[1] += paddle_speed[1]
         elif ball.bottom > paddle.top or ball.top < paddle.bottom:
             ball_speed[1] = -ball_speed[1]
+			
+    if ball.colliderect(ai):
+        if ball.right > ai.left:
+            ball_speed[0] = -ball_speed[0]
+            ball_speed[1] += ai_speed[1]
+        elif ball.bottom > ai.top or ball.top < ai.bottom:
+            ball_speed[1] = -ball_speed[1]
 
     paddle = paddle.move(paddle_speed)
     ball = ball.move(ball_speed)
